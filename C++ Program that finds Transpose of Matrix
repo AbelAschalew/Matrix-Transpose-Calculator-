@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+int main () {
+	int r, c;
+	cout << "Enter Row of Matrix:" << endl;
+	cin >> r;
+	cout << "Enter Column of Matrix:" << endl;
+	cin >> c;
+	
+	int **mrx = new int*[r];
+	
+	int i, k;
+	for (i=0; i<r; i++) {
+		mrx[i] = new int[c];
+	}
+	
+	// Taking Input
+	int row = 1;
+	int clmn = 1;
+	for (i=0; i<r; i++) {
+		clmn = 1;
+		for (k=0; k<c; k++) {
+			cout << "Row-" << row << " Col-" << clmn << ":- Enter Element:" << endl;
+			cin >> mrx[i][k];
+			clmn++;
+		}
+		row++;
+	}
+	
+	// Displaying Orginal Matrix
+	cout << "******* Orginal *******" << endl;
+	for (i=0; i<r; i++) {
+		for (k=0; k<c; k++) {
+			cout << mrx[i][k];
+		}
+		cout << endl;
+	}
+	
+	int tc;
+	// Calculating Transpose
+	int tmrx[c][r];
+	for (i=0; i<r; i++) {
+		for (k=0; k<c; k++) {
+			tmrx[k][i] = mrx[i][k];
+		}
+	}
+	
+	// Displaying Transpose
+	cout << endl << "******* Transpose *******" << endl;
+	for (i=0; i<c; i++) {
+		for (k=0; k<r; k++) {
+			cout << tmrx[i][k];
+		}
+		cout << endl;
+	}
+}
